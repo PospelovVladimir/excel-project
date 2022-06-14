@@ -1,2 +1,16 @@
 @import 'variables';
 @import 'mixins';
+
+.toolbar {
+	position: absolute;
+	top: $heightHeader;
+	left: 0px;
+	right: 0px;
+	height: $heightToollbar;
+	padding: 0 20px;
+	background-color: #c4c4c4;
+
+	&__btn {
+		@include button($blue);
+	}
+}
