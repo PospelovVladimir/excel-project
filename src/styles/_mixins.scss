@@ -1,0 +1,14 @@
+@mixin button($color) {
+	padding: 5px;
+	display: inline-block;
+	text-align: center;
+
+	&:hover {
+		cursor: pointer;
+		background-color: $silver;
+	}
+
+	& span:active {
+		color: $color;
+	}
+}
