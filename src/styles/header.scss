@@ -1,0 +1,42 @@
+@import 'variables';
+@import 'mixins';
+
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	background-color: #e7e7e7;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+
+	&__input {
+		border: 2px solid transparent;
+		outline: 0px;
+		padding: 0 10px;
+		color: $silver;
+		border-radius: 3px;
+
+		&:hover {
+			border: 2px solid $silver;
+		}
+
+		&:focus {
+			border: 2px solid $blue;
+		}
+	}
+
+	&__controll {
+		display: flex;
+		align-items: center;
+	}
+
+	&__btn {
+		@include button($blue);
+		&.header__btn--delete {
+			@include button(red);
+		}
+	}
+}
