@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app" class="container">
+			<div class="excel">
+				<div class="header">
+					<input type="text" class="header__input" value="Название таблицы" />
+					<div class="header__controll">
+						<div class="header__btn header__btn--delete">
+							<span class="material-icons">delete</span>
+						</div>
+						<div class="header__btn">
+							<span class="material-icons">logout</span>
+						</div>
+					</div>
+				</div>
+				<div class="toolbar">
+					<div class="toolbar__btn">
+						<span class="material-icons">
+							format_align_left
+						</span>
+					</div>
+					<div class="toolbar__btn">
+						<span class="material-icons">
+							format_align_center
+						</span>
+					</div>
+					<div class="toolbar__btn">
+						<span class="material-icons">
+							format_align_right
+						</span>
+					</div>
+					<div class="toolbar__btn">
+						<span class="material-icons">
+							format_bold
+						</span>
+					</div>
+					<div class="toolbar__btn">
+						<span class="material-icons">
+							format_italic
+						</span>
+					</div>
+					<div class="toolbar__btn">
+						<span class="material-icons">
+							format_underlined
+						</span>
+					</div>
+				</div>
+				<div class="fx">
+					<span class="fx__ico material-icons">
+						functions
+					</span>
+					<input class="fx__input" type="text" name="" />
+				</div>
+				<div class="table">
+					<div class="table__row">
+						<div class="table__row-info table__row-info--master"></div>
+						<div class="table__row-data">
+							<div class="table__row-column table__row-column--header">A</div>
+							<div class="table__row-column table__row-column--header">B</div>
+							<div class="table__row-column table__row-column--header">C</div>
+						</div>
+					</div>
+					<div class="table__row">
+						<div class="table__row-info">1</div>
+						<div class="table__row-data">
+							<div class="table__row-column selected">1</div>
+							<div class="table__row-column">2</div>
+							<div class="table__row-column" contenteditable="">lorem</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
