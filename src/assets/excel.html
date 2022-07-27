@@ -9,7 +9,8 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<div id="app" class="container">
+		<!--  id="app" class="container" -->
+		<div>
 			<div class="excel">
 				<div class="header">
 					<input type="text" class="header__input" value="Название таблицы" />
@@ -24,53 +25,73 @@
 				</div>
 				<div class="toolbar">
 					<div class="toolbar__btn">
-						<span class="material-icons">
-							format_align_left
-						</span>
+						<span class="material-icons"> format_align_left </span>
 					</div>
 					<div class="toolbar__btn">
-						<span class="material-icons">
-							format_align_center
-						</span>
+						<span class="material-icons"> format_align_center </span>
 					</div>
 					<div class="toolbar__btn">
-						<span class="material-icons">
-							format_align_right
-						</span>
+						<span class="material-icons"> format_align_right </span>
 					</div>
 					<div class="toolbar__btn">
-						<span class="material-icons">
-							format_bold
-						</span>
+						<span class="material-icons"> format_bold </span>
 					</div>
 					<div class="toolbar__btn">
-						<span class="material-icons">
-							format_italic
-						</span>
+						<span class="material-icons"> format_italic </span>
 					</div>
 					<div class="toolbar__btn">
-						<span class="material-icons">
-							format_underlined
-						</span>
+						<span class="material-icons"> format_underlined </span>
 					</div>
 				</div>
 				<div class="fx">
-					<span class="fx__ico material-icons">
-						functions
-					</span>
+					<span class="fx__ico material-icons"> functions </span>
 					<input class="fx__input" type="text" name="" />
 				</div>
 				<div class="table">
 					<div class="table__row">
 						<div class="table__row-info table__row-info--master"></div>
 						<div class="table__row-data">
-							<div class="table__row-column table__row-column--header">A</div>
-							<div class="table__row-column table__row-column--header">B</div>
-							<div class="table__row-column table__row-column--header">C</div>
+							<div class="table__row-column table__row-column--header">
+								<span class="table__row-column-text">A</span>
+								<i class="table__row-column-resize-controll"></i>
+							</div>
+							<div class="table__row-column table__row-column--header">
+								<span class="table__row-column-text">B</span>
+								<i class="table__row-column-resize-controll"></i>
+							</div>
+							<div class="table__row-column table__row-column--header">
+								<span class="table__row-column-text">C</span>
+								<i class="table__row-column-resize-controll"></i>
+							</div>
 						</div>
 					</div>
 					<div class="table__row">
-						<div class="table__row-info">1</div>
+						<div class="table__row-info">
+							<span class="table__row-info-text">1</span>
+							<i class="table__row-info-resize-controll"></i>
+						</div>
+						<div class="table__row-data">
+							<div class="table__row-column selected">1</div>
+							<div class="table__row-column">2</div>
+							<div class="table__row-column" contenteditable="">lorem</div>
+						</div>
+					</div>
+					<div class="table__row">
+						<div class="table__row-info">
+							<span class="table__row-info-text">1</span>
+							<i class="table__row-info-resize-controll"></i>
+						</div>
+						<div class="table__row-data">
+							<div class="table__row-column selected">1</div>
+							<div class="table__row-column">2</div>
+							<div class="table__row-column" contenteditable="">lorem</div>
+						</div>
+					</div>
+					<div class="table__row">
+						<div class="table__row-info">
+							<span class="table__row-info-text">1</span>
+							<i class="table__row-info-resize-controll"></i>
+						</div>
 						<div class="table__row-data">
 							<div class="table__row-column selected">1</div>
 							<div class="table__row-column">2</div>

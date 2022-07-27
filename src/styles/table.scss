@@ -17,14 +17,61 @@
 	}
 
 	&__row-info {
-		padding: 10px 5px;
-		text-align: center;
+		position: relative;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-between;
+		align-items: center;
 		background-color: rgb(233, 233, 233);
-		font-weight: bold;
 		border-bottom: 1px solid #999999;
 		min-width: 40px;
-		font-size: 10px;
-		color: $silver;
+		min-height: 35px;
+
+		& .table__row-info-text {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			font-weight: bold;
+			color: $silver;
+			font-size: 10px;
+			margin-bottom: 6px;
+		}
+
+		& .table__row-info-resize-controll {
+			opacity: 0;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 6px;
+			background-color: $blue;
+			z-index: 2;
+			// transition: opacity 0.2s;
+
+			&::after {
+				display: none;
+				content: '';
+				position: absolute;
+				top: 3px;
+				left: 0;
+				height: 1px;
+				width: 100vw;
+				background-color: $blue;
+				z-index: 2;
+			}
+
+			&:hover {
+				opacity: 1;
+				cursor: ns-resize;
+			}
+
+			&.is-active::after {
+				display: block;
+				background-color: $blue;
+			}
+		}
 
 		&--master {
 			background-color: rgb(139, 139, 139);
@@ -60,14 +107,69 @@
 		}
 
 		&--header {
-			text-align: center;
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0px;
+
 			background-color: #dadada;
-			font-weight: bold;
 			border-top: 1px solid #e7e7e7;
+
+			& .table__row-column-text {
+				display: inline-block;
+				width: 100%;
+				margin-right: 6px;
+				text-align: center;
+				font-weight: bold;
+			}
+
+			& .table__row-column-resize-controll {
+				// opacity: 1;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background-color: $blue;
+				min-width: 6px;
+				height: 100%;
+				z-index: 2;
+				// transition: opacity 0.2s;
+
+				&::after {
+					display: none;
+					// display: block;
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 3px;
+					width: 1px;
+					height: 100vh;
+					background-color: $blue;
+					z-index: 2;
+				}
+
+				&:hover {
+					opacity: 1;
+					cursor: ew-resize;
+				}
+
+				&.is-active {
+					opacity: 1;
+				}
+
+				&.is-active::after {
+					display: block;
+					background-color: $blue;
+				}
+			}
 
 			&:hover {
 				background-color: #dddddd;
 			}
 		}
+	}
+	&.unselectable {
+		user-select: none;
 	}
 }

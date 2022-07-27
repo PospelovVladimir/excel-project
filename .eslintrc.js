@@ -27,7 +27,8 @@ module.exports = {
 		'no-console': 'off',
 		'arrow-parens': 'off',
 		'comma-dangle': 'off',
-		'import/extensions': 'off'
+		'import/extensions': 'off',
+		'no-use-before-define': ["error", { "classes": false }]
 		// 'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }] тогда ошибки JSX not allowed in files with extension '.js' не будет
 	},
 };
