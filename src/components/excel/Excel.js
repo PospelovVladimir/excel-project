@@ -17,7 +17,7 @@ export default class Excel extends ExcelComponent {
 		const root = $.create(Excel.element, Excel.className);
 
 		this.components = this.components.map(Component => {
-			const componentRoot = $.create(Component.element, Component.className);
+			const componentRoot = $.create(Component.element, Component.className, Component.attributes);
 			componentRoot.html(Component.toHTML());
 			root.append(componentRoot);
 
