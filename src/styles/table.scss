@@ -102,6 +102,15 @@
 			border-radius: 3px;
 		}
 
+		&.pre-selected {
+			background-color: rgb(227, 230, 255);
+			z-index: 2;
+			border: 0;
+			color: #ffffff;
+			// outline: 2px solid #3356f1;
+			// border-radius: 3px;
+		}
+
 		&:last-child {
 			border-right: 1px solid #e7e7e7;
 		}

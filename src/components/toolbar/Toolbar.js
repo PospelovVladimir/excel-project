@@ -5,6 +5,14 @@ export default class Toolbar extends ExcelComponent {
 
 	static className = 'toolbar';
 
+	constructor($root, options) {
+		super($root, {
+			name: 'toolbar',
+			listeners: [],
+			...options,
+		});
+	}
+
 	static toHTML() {
 		return `
 			<div class="toolbar__btn">

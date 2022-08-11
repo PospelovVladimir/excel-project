@@ -31,6 +31,22 @@ class Dom {
 		return this.$el.innerHTML;
 	}
 
+	text(text) {
+		if (typeof text === 'string') {
+			this.$el.textContent = text;
+			return this;
+		}
+		return this.$el.textContent;
+	}
+
+	value(text) {
+		if (typeof text === 'string') {
+			this.$el.value = text;
+			return this;
+		}
+		return this.$el.value;
+	}
+
 	clear() {
 		this.html('');
 		return this;
@@ -86,14 +102,31 @@ class Dom {
 		return this;
 	}
 
+	hasClass(classes) {
+		return this.$el.classList.contains(classes);
+	}
+
 	findAll(selector) {
 		return this.$el.querySelectorAll(selector);
+	}
+
+	find(selector) {
+		return $(this.$el.querySelector(selector));
 	}
 
 	css(styles = {}) {
 		Object.keys(styles).forEach(key => {
 			this.$el.style[key] = styles[key];
 		});
+		return this;
+	}
+
+	hasElement() {
+		return this.$el;
+	}
+
+	setFocus() {
+		this.$el.focus();
 		return this;
 	}
 }
