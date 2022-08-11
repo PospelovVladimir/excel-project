@@ -5,6 +5,14 @@ export default class Header extends ExcelComponent {
 
 	static className = 'header';
 
+	constructor($root, options) {
+		super($root, {
+			name: 'header',
+			listeners: [],
+			...options,
+		});
+	}
+
 	static toHTML() {
 		return `
 		<input type="text" class="header__input" value="Название таблицы" />

@@ -20,8 +20,10 @@ module.exports = {
 	},
 	rules: {
 		// "max-len": [1, 70, 2, { ignoreComments: true }]
-		indent: ['error', 'tab', { SwitchCase: 1 }],
-		indent: [2, 'tab'],
+		indent: ['error', 'tab', { 
+			SwitchCase: 1, 
+		}],
+		// indent: [2, 'tab'],
 		'no-tabs': 0,
 		'linebreak-style': ['error', 'windows'],
 		'no-console': 'off',

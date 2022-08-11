@@ -1,4 +1,5 @@
 import $ from '../../core/dom';
+import Emitter from '../../core/Emitter';
 import ExcelComponent from '../../core/ExcelComponent';
 
 export default class Excel extends ExcelComponent {
@@ -10,11 +11,16 @@ export default class Excel extends ExcelComponent {
 		super();
 		this.$el = $(selector);
 		this.components = options.components || [];
+		this.emitter = new Emitter();
 	}
 
 	// собрать корневой элемент со внутренними компонентами
 	getRoot() {
 		const root = $.create(Excel.element, Excel.className);
+
+		const componentOptions = {
+			emitter: this.emitter,
+		};
 
 		this.components = this.components.map(Component => {
 			const componentRoot = $.create(Component.element, Component.className, Component.attributes);
@@ -24,8 +30,7 @@ export default class Excel extends ExcelComponent {
 			// const comp = new Component(componentRoot);
 			// window[`ccc${comp.nameComponent}`] = comp;
 
-			// return comp;
-			return new Component(componentRoot);
+			return new Component(componentRoot, componentOptions);
 		});
 
 		return root;
@@ -36,5 +41,9 @@ export default class Excel extends ExcelComponent {
 		this.components.forEach(component => {
 			component.init();
 		});
+	}
+
+	destroy() {
+		this.components.forEach(component => component.destroy());
 	}
 }

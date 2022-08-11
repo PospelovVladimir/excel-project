@@ -27,7 +27,7 @@ function genearateTableCell(countColumn, numberRow) {
 	let cell = '';
 
 	for (let i = 1; i <= countColumn; i += 1) {
-		cell += `<div class="table__row-column" contenteditable data-cell data-row-id="${numberRow}" data-column-id="${i}"></div>`;
+		cell += `<div class="table__row-column" contenteditable data-cell="cell" data-row-id="${numberRow}" data-column-id="${i}"></div>`;
 	}
 	return cell;
 }
