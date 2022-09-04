@@ -10,25 +10,26 @@ export default class Fx extends ExcelComponent {
 		super($root, {
 			name: 'Fx',
 			listeners: ['input', 'keydown'],
+			subscribersStore: ['stateCurrentCell'],
 			...options,
 		});
 	}
 
 	init() {
 		super.init();
-		const fxInput = this.$root.find('[data-fx-input]');
+		this.$fxInput = this.$root.find('[data-fx-input]');
 
-		this.$subscribe('table:input', data => {
-			fxInput.value(data);
+		this.$on('table:keydown', data => {
+			this.$fxInput.value(data);
 		});
 
-		this.$subscribe('table:keydown', data => {
-			fxInput.value(data);
+		this.$on('table:mousedown', data => {
+			this.$fxInput.value(data);
 		});
+	}
 
-		this.$subscribe('table:mousedown', data => {
-			fxInput.value(data);
-		});
+	changeState({ stateCurrentCell }) {
+		this.$fxInput.value(stateCurrentCell.formulaText || stateCurrentCell.text);
 	}
 
 	onInput(e) {
@@ -45,7 +46,7 @@ export default class Fx extends ExcelComponent {
 		}
 	}
 
-	static toHTML() {
+	toHTML() {
 		return `
 		<span class="fx__ico material-icons">
 			functions
