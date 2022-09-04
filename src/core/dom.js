@@ -129,4 +129,32 @@ class Dom {
 		this.$el.focus();
 		return this;
 	}
+
+	getStyles(styles = []) {
+		return styles.reduce((sum, item) => {
+			const outSum = sum;
+			outSum[item] = this.$el.style[item];
+			return outSum;
+		}, {});
+	}
+
+	setAttributes(attributes = {}) {
+		Object.keys(attributes).forEach(key => {
+			this.$el.setAttribute(key, attributes[key]);
+		});
+		return this;
+	}
+
+	getAttribute(key) {
+		return this.$el.getAttribute(key);
+	}
+
+	removeAttribute(key) {
+		this.$el.removeAttribute(key);
+		return this;
+	}
+
+	hasAttribute(key) {
+		return this.$el.hasAttribute(key);
+	}
 }

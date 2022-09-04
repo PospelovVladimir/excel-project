@@ -9,8 +9,13 @@
 	height: $heightToollbar;
 	padding: 0 20px;
 	background-color: #c4c4c4;
+	user-select: none;
 
 	&__btn {
 		@include button($blue);
+		&.is-active {
+			background-color: $blue;
+			color: #fff;
+		}
 	}
 }
