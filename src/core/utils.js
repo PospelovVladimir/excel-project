@@ -25,6 +25,10 @@ export function locStorage(key, data = null) {
 	return JSON.parse(localStorage.getItem(key));
 }
 
+export function locStorageDeleteItemByKey(key) {
+	return localStorage.removeItem(key);
+}
+
 export function isEqual(a, b) {
 	if (typeof a === 'object' && typeof b === 'object') {
 		return JSON.stringify(a) === JSON.stringify(b);

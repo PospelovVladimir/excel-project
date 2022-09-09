@@ -1,14 +1,14 @@
 import $ from '../../core/dom';
 import Emitter from '../../core/Emitter';
 import SubscriberStore from '../../core/SubscriberStore';
+import { changeLastModifiedDate } from '../../redux/actions';
 
 export default class Excel {
 	static element = 'div';
 
 	static className = 'excel';
 
-	constructor(selector, options) {
-		this.$el = $(selector);
+	constructor(options) {
 		this.components = options.components || [];
 		this.emitter = new Emitter();
 		this.store = options.store;
@@ -40,13 +40,13 @@ export default class Excel {
 		return root;
 	}
 
-	render() {
-		this.$el.append(this.getRoot());
-
+	init() {
 		this.subscriberStore.subscribeComponents(this.components);
 		this.components.forEach(component => {
 			component.init();
 		});
+		// dispatch change last modified date, in state
+		this.store.dispatch(changeLastModifiedDate(new Date().toLocaleString()));
 	}
 
 	destroy() {

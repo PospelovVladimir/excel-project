@@ -8,6 +8,7 @@ const defaultState = {
 	stateCurrentCell: '',
 	currentStyleCell: { ...DEFAULT_STYLES_TOOLBAR },
 	tableName: DEFAULT_TABLE_NAME,
+	lastModifiedDate: new Date().toLocaleString(),
 };
 
 const normalize = state => ({
@@ -15,5 +16,6 @@ const normalize = state => ({
 	currentStyleCell: {},
 });
 
-const initialState = locStorage('excelState') ? normalize(locStorage('excelState')) : defaultState;
-export default initialState;
+export default function initialState(param) {
+	return locStorage(param) ? normalize(locStorage(param)) : defaultState;
+}
