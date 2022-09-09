@@ -1,4 +1,12 @@
-import { COLUMN_RESIZE, ROW_RESIZE, CHANGE_DATA_CELL, CHANGE_STYLES_CELL, CHANGE_STYLE_CURRENT_CELL, CHANGE_TABLE_NAME } from './types';
+import {
+	COLUMN_RESIZE,
+	ROW_RESIZE,
+	CHANGE_DATA_CELL,
+	CHANGE_STYLES_CELL,
+	CHANGE_STYLE_CURRENT_CELL,
+	CHANGE_TABLE_NAME,
+	CHANGE_LAST_MODIFIED_DATE,
+} from './types';
 
 export default function rootReducer(state, action = {}) {
 	switch (action.type) {
@@ -71,6 +79,11 @@ export default function rootReducer(state, action = {}) {
 			return {
 				...state,
 				tableName: action.data.text,
+			};
+		case CHANGE_LAST_MODIFIED_DATE:
+			return {
+				...state,
+				lastModifiedDate: action.data,
 			};
 		default:
 			return state;

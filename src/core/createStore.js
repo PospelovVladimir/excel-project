@@ -7,9 +7,10 @@ export default class CreateStore {
 
 	subscribe(fx) {
 		this.subscribers.push(fx);
+		const context = this;
 		return {
 			unsubscribe() {
-				this.subscribers.filter(subscriber => subscriber !== fx);
+				context.subscribers = context.subscribers.filter(subscriber => subscriber !== fx);
 			},
 		};
 	}

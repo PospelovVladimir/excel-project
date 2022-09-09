@@ -1,8 +1,10 @@
 import $ from '../../core/dom';
 import ExcelComponent from '../../core/ExcelComponent';
 import { changeTableName } from '../../redux/actions';
-import isInput from './header.functions';
+import { isInput, isBtn } from './header.functions';
 import { DEFAULT_TABLE_NAME } from '../../constants';
+import ActiveRoute from '../../core/ActiveRoute';
+import { locStorageDeleteItemByKey } from '../../core/utils';
 
 export default class Header extends ExcelComponent {
 	static element = 'div';
@@ -12,7 +14,7 @@ export default class Header extends ExcelComponent {
 	constructor($root, options) {
 		super($root, {
 			name: 'header',
-			listeners: ['input'],
+			listeners: ['input', 'click'],
 			...options,
 		});
 	}
@@ -31,15 +33,30 @@ export default class Header extends ExcelComponent {
 		}
 	}
 
+	onClick(e) {
+		if (isBtn(e)) {
+			const $target = $(e.target);
+
+			if ($target.dataset.btn === 'delete-current-table') {
+				locStorageDeleteItemByKey(`excel:${ActiveRoute.param}`);
+				ActiveRoute.navigation('#showcase');
+			}
+
+			if ($target.dataset.btn === 'logout') {
+				ActiveRoute.navigation('#showcase');
+			}
+		}
+	}
+
 	toHTML() {
 		return `
 		<input type="text" class="header__input" placeholder="Название таблицы" data-input="table-name"/>
 		<div class="header__controll">
 			<div class="header__btn header__btn--delete">
-				<span class="material-icons">delete</span>
+				<i class="material-icons" data-btn="delete-current-table">delete</i>
 			</div>
 			<div class="header__btn">
-				<span class="material-icons">logout</span>
+				<i class="material-icons" data-btn="logout">logout</i>
 			</div>
 		</div>`;
 	}

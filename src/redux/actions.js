@@ -1,4 +1,12 @@
-import { CHANGE_DATA_CELL, CHANGE_STYLES_CELL, CHANGE_STYLE_CURRENT_CELL, CHANGE_TABLE_NAME, COLUMN_RESIZE, ROW_RESIZE } from './types';
+import {
+	CHANGE_DATA_CELL,
+	CHANGE_LAST_MODIFIED_DATE,
+	CHANGE_STYLES_CELL,
+	CHANGE_STYLE_CURRENT_CELL,
+	CHANGE_TABLE_NAME,
+	COLUMN_RESIZE,
+	ROW_RESIZE,
+} from './types';
 
 export function tableColumnResize(data) {
 	return {
@@ -38,6 +46,13 @@ export function tableCellChangeStylesCurrentCell(data) {
 export function changeTableName(data) {
 	return {
 		type: CHANGE_TABLE_NAME,
+		data,
+	};
+}
+
+export function changeLastModifiedDate(data) {
+	return {
+		type: CHANGE_LAST_MODIFIED_DATE,
 		data,
 	};
 }
