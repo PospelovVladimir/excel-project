@@ -2,6 +2,8 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
+		jest: true
+		// "jest/globals": true
 		// node: true,
 		// commonjs: true,
 	},
@@ -11,6 +13,7 @@ module.exports = {
 		'plugin:import/recommended',
 		'prettier'
 	],
+	plugins: ["jest"],
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true
