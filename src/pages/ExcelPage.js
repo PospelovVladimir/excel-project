@@ -3,7 +3,7 @@ import Fx from '../components/fx/Fx';
 import Header from '../components/header/Header';
 import Table from '../components/table/Table';
 import Toolbar from '../components/toolbar/Toolbar';
-import CreateStore from '../core/createStore';
+import CreateStore from '../core/store/СreateStore';
 import Page from '../core/Page';
 import { locStorage } from '../core/utils';
 import initialState from '../redux/initialState';
