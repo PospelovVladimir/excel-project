@@ -14,12 +14,17 @@ function createStorageKey(param) {
 }
 
 export default class ExcelPage extends Page {
+	constructor(params) {
+		super(params);
+		this.unsub = null;
+	}
+
 	getRoot() {
 		const params = this.params ? this.params : Date.now();
 		const store = new CreateStore(rootReducer, initialState(createStorageKey(params)));
 		const updateLocStorage = state => locStorage(createStorageKey(params), state);
 
-		store.subscribe(updateLocStorage);
+		this.unsub = store.subscribe(updateLocStorage);
 
 		this.excel = new Excel({
 			components: [Header, Toolbar, Fx, Table],
@@ -34,6 +39,7 @@ export default class ExcelPage extends Page {
 	}
 
 	destroy() {
+		this.unsub.unsubscribe();
 		this.excel.destroy();
 	}
 }
