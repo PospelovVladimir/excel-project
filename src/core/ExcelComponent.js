@@ -8,6 +8,7 @@ export default class ExcelComponent extends DomListener {
 		this.store = property.store;
 		this.subscribersStore = property.subscribersStore || [];
 		this.unsubscribes = [];
+		this.repository = property.repository;
 
 		this.prepare();
 	}

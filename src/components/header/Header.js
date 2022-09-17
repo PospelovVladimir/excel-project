@@ -4,7 +4,6 @@ import { changeTableName } from '../../redux/actions';
 import { isInput, isBtn } from './header.functions';
 import { DEFAULT_TABLE_NAME } from '../../constants';
 import ActiveRoute from '../../core/ActiveRoute';
-import { locStorageDeleteItemByKey } from '../../core/utils';
 
 export default class Header extends ExcelComponent {
 	static element = 'div';
@@ -38,7 +37,7 @@ export default class Header extends ExcelComponent {
 			const $target = $(e.target);
 
 			if ($target.dataset.btn === 'delete-current-table') {
-				locStorageDeleteItemByKey(`excel:${ActiveRoute.param}`);
+				this.repository.deleteByKey(`excel:${ActiveRoute.param}`);
 				ActiveRoute.navigation('#showcase');
 			}
 
