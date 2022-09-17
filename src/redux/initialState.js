@@ -1,4 +1,3 @@
-import { locStorage } from '../core/utils';
 import { DEFAULT_STYLES_TOOLBAR, DEFAULT_TABLE_NAME } from '../constants';
 
 const defaultState = {
@@ -16,6 +15,6 @@ const normalize = state => ({
 	currentStyleCell: {},
 });
 
-export default function initialState(param) {
-	return locStorage(param) ? normalize(locStorage(param)) : defaultState;
+export default function initialState(stateByKey) {
+	return stateByKey ? normalize(stateByKey) : defaultState;
 }

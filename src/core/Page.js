@@ -1,6 +1,6 @@
 export default class Page {
-	constructor(params) {
-		this.params = params;
+	constructor(options) {
+		this.repository = options.repository;
 	}
 
 	getRoot() {

@@ -13,6 +13,7 @@ export default class Excel {
 		this.emitter = new Emitter();
 		this.store = options.store;
 		this.subscriberStore = new SubscriberStore(this.store);
+		this.repository = options.repository;
 	}
 
 	// собрать корневой элемент со внутренними компонентами
@@ -22,6 +23,7 @@ export default class Excel {
 		const componentOptions = {
 			emitter: this.emitter,
 			store: this.store,
+			repository: this.repository,
 		};
 
 		this.components = this.components.map(Component => {

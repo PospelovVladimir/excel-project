@@ -5,30 +5,26 @@ import Table from '../components/table/Table';
 import Toolbar from '../components/toolbar/Toolbar';
 import CreateStore from '../core/store/СreateStore';
 import Page from '../core/Page';
-import { locStorage } from '../core/utils';
 import initialState from '../redux/initialState';
 import rootReducer from '../redux/rootReducer';
 
-function createStorageKey(param) {
-	return `excel:${param}`;
-}
-
 export default class ExcelPage extends Page {
-	constructor(params) {
-		super(params);
+	constructor(options) {
+		super(options);
 		this.unsub = null;
+		this.param = options.param ? options.param : Date.now();
 	}
 
 	getRoot() {
-		const params = this.params ? this.params : Date.now();
-		const store = new CreateStore(rootReducer, initialState(createStorageKey(params)));
-		const updateLocStorage = state => locStorage(createStorageKey(params), state);
+		const store = new CreateStore(rootReducer, initialState(this.repository.getOne(this.param)));
+		const updateStorage = state => this.repository.setByKey(this.param, state);
 
-		this.unsub = store.subscribe(updateLocStorage);
+		this.unsub = store.subscribe(updateStorage);
 
 		this.excel = new Excel({
 			components: [Header, Toolbar, Fx, Table],
 			store,
+			repository: this.repository,
 		});
 
 		return this.excel.getRoot();
